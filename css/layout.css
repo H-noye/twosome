@@ -1,0 +1,43 @@
+.inner {
+    max-width: 1410px;
+    margin: 0 auto;
+}
+
+.default {
+    padding: 120px 0;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+}
+
+.title h2 {
+    font-size: 96px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.title h2::after {
+    content: "";
+    display: inline-block;
+    margin-left: 8px;
+    height: 16px;
+    width: 16px;
+    background: rgba(213, 0, 55, 0.9);
+}
+
+.title strong {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    color: #000;
+}
+
+.title span {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    color: #000;
+}

@@ -1,0 +1,41 @@
+.blind {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.default_btn {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 2rem;
+    height: 4rem;
+    border: 3px solid #fff;
+    border-radius: 2rem;
+    color: #fff;
+    font-size: 16px;
+    overflow: hidden;
+    background: #000;
+}
+
+.default_btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    width: 0;
+    background: rgba(213, 0, 55, 0.9);
+    transition: 0.4s;
+}
+
+.default_btn:hover::before {
+    right: auto;
+    left: 0;
+    width: 100%;
+}
