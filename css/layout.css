@@ -41,3 +41,40 @@
     margin-bottom: 24px;
     color: #000;
 }
+
+@media (max-width:768px) {
+    .inner {
+        margin: 0 16px;
+    }
+
+    .title h2 {
+        font-size: 96px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        color: #000;
+
+        /*  */
+        font-size: 40px;
+    }
+
+    .title strong {
+        font-size: 40px;
+        font-weight: 600;
+        margin-bottom: 32px;
+        color: #000;
+
+        /*  */
+
+        font-size: 24px;
+    }
+
+    .title span {
+        font-size: 32px;
+        font-weight: 500;
+        margin-bottom: 24px;
+        color: #000;
+
+        /*  */
+        font-size: 20px;
+    }
+}

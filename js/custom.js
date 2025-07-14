@@ -8,10 +8,36 @@ $(function () {
             $('#header').removeClass('on')
         }
     });
+
+    $('#header .hd_wrap .utils button').on('click', function () {
+        $('.gnb').toggleClass('on')
+    });
+
+    $('#header .hd_wrap .gnb>ul>li>a').on('click', function (e) {
+        if ($('.gnb').hasClass('on') && $(this).next().is('ul')) {
+            e.preventDefault();
+
+            const isActive = $(this).hasClass('on');
+
+            // 모두 초기화
+            $('.gnb>ul>li>a').removeClass('on');
+            $('.gnb>ul>li ul').stop().slideUp();
+
+            if (!isActive) {
+                $(this).addClass('on');
+                $(this).next().stop().slideToggle();
+            }
+        }
+    });
 });
 
-
-
+$(window).on('resize', function () {
+    let ww = $(window).width();
+    if (ww > 768) {
+        $('.gnb').removeClass('on');
+        $('.gnb>ul>li ul').removeAttr('style');
+    }
+})
 
 $(function () {
     const main_visual_slide = new Swiper('.main_visual_slide', {
@@ -50,12 +76,10 @@ $(function () {
 
     const coffee_slide = new Swiper('.coffee_slide', {
         loop: true,
-        slidesPerView: "auto",
+        slidesPerView: "1",
         spaceBetween: 30,
-        // centeredSlides: true,
         on: {
             init: function () {
-                // {this.slides.length
                 $('.coffee.tit span').text(TXT[0])
             },
             slideChangeTransitionEnd: function () {
@@ -65,6 +89,12 @@ $(function () {
             slideChangeTransitionStart: function () {
                 $('.main_menu .inner .right .swiper-slide-active').addClass('on');
                 $('.main_menu .inner .right .swiper-slide-active').nextAll().removeClass('on');
+            },
+        },
+
+        breakpoints: {
+            768: {
+                slidesPerView: "auto",
             },
         },
 
@@ -84,11 +114,10 @@ $(function () {
 
     const dessert_slide = new Swiper('.dessert_slide', {
         loop: true,
-        slidesPerView: "auto",
+        slidesPerView: 1,
         spaceBetween: 30,
         on: {
             init: function () {
-                // {this.slides.length
                 $('.dessert.tit span').text(TXT2[0])
             },
             slideChangeTransitionEnd: function () {
@@ -100,6 +129,11 @@ $(function () {
             },
         },
 
+        breakpoints: {
+            768: {
+                slidesPerView: "auto",
+            },
+        },
     });
 
 
@@ -116,11 +150,10 @@ $(function () {
 
     const deli_slide = new Swiper('.deli_slide', {
         loop: true,
-        slidesPerView: "auto",
+        slidesPerView: "1",
         spaceBetween: 30,
         on: {
             init: function () {
-                // {this.slides.length
                 $('.deli.tit span').text(TXT3[0])
             },
             slideChangeTransitionEnd: function () {
@@ -130,7 +163,13 @@ $(function () {
                 $('.main_menu .inner .right .swiper-slide-active').addClass('on');
                 $('.main_menu .inner .right .swiper-slide-active').nextAll().removeClass('on');
             },
-        }
+        },
+
+        breakpoints: {
+            768: {
+                slidesPerView: "auto",
+            },
+        },
 
     });
 
